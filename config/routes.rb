@@ -1,10 +1,10 @@
 Rails.application.routes.draw do
+  resources :sessions, only: [:new, :create, :destroy]
   root 'chatroom#index'
-
-  get 'signup', to 'users#new'
   resources :users, except: [:new]
 
-  get 'login', to: 'sessions#new'
+  get 'signup', to: 'users#new'
+  get 'login', to: 'sessions#new', as: 'login'
   post 'login', to: 'sessions#create'
   delete 'logout', to: 'sessions#destroy'
 end
