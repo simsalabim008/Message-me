@@ -2,5 +2,8 @@ module ApplicationCable
   class Channel < ActionCable::Channel::Base
   end
 
-  class ChatroomChannel < Applicationcable::Channel
+  class ChatroomChannel < ApplicationCable::Channel
+
+  end
+
 end

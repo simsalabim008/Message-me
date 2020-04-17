@@ -1,6 +1,7 @@
 class ChatroomChannel < ApplicationCable::Channel
   def subscribed
-    stream_from "chatroom_#{params[:room]}"
+    stream_from "chatroom_channel"
+    reject unless current_user.can_access?(@room)
   end
 
   def unsubscribed
